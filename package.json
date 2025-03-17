@@ -1,7 +1,7 @@
 {
-  "name": "project-name-here",
+  "name": "datadik-dikdasmen-node",
   "version": "0.0.1",
-  "description": "project description here",
+  "description": "SP Datadikdasmen API Wrapper for Node.js",
   "main": "./dist/index.js",
   "scripts": {
     "prepare": "node preinstall.js --max-old-space-size=10M",
@@ -12,7 +12,24 @@
   },
   "type": "module",
   "keywords": [
-    "project keywords"
+    "dikdasmen",
+    "dapodik",
+    "sp datadik",
+    "sp",
+    "indonesia",
+    "indonesia service",
+    "education",
+    "education ministry",
+    "datadik",
+    "data indonesia",
+    "siswa",
+    "peserta didik",
+    "peserta didik indonesia",
+    "dapodik node",
+    "dapodikjs",
+    "kemdikbudjs",
+    "kemdikbud",
+    "kemendikbud"
   ],
   "author": {
     "name": "Hanif Dwy Putra S",
