@@ -13,3 +13,19 @@ export type AuthLoginPayload = {
 	 */
 	password: string;
 };
+
+export type AuthCookieStorage = {
+	readCookie: () => Promise<string> | string;
+	writeCookie: (cookie: string) => Promise<void> | void;
+};
+
+/**
+ * @description Parameters .login() method
+ */
+export type AuthLoginParams = {
+	/**
+	 * @description Anonymize the IP address of the client to dikdasmen
+	 * @default true
+	 */
+	anonymizeIp: boolean;
+};

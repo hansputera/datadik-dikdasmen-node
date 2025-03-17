@@ -47,6 +47,7 @@
     "typescript": "^5.8.2"
   },
   "dependencies": {
-    "htmlparser2": "^10.0.0"
+    "@mojojs/dom": "^2.1.5",
+    "ky": "^1.7.5"
   }
 }
