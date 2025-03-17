@@ -47,6 +47,6 @@
     "typescript": "^5.8.2"
   },
   "dependencies": {
-    "html-dom-parser": "^5.0.13"
+    "htmlparser2": "^10.0.0"
   }
 }

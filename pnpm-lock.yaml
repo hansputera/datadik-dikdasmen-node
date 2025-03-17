@@ -8,9 +8,9 @@ importers:
 
   .:
     dependencies:
-      html-dom-parser:
-        specifier: ^5.0.13
-        version: 5.0.13
+      htmlparser2:
+        specifier: ^10.0.0
+        version: 10.0.0
     devDependencies:
       '@biomejs/biome':
         specifier: 1.8.3
@@ -581,9 +581,6 @@ packages:
   glob@10.4.5:
     resolution: {integrity: sha512-7Bv8RF0k6xjo7d4A/PxYLbUCfb6c+Vpd2/mB2yRDlew7Jb5hEXiCD9ibfO7wpk8i4sevK6DFny9h7EYbM3/sHg==}
     hasBin: true
-
-  html-dom-parser@5.0.13:
-    resolution: {integrity: sha512-B7JonBuAfG32I7fDouUQEogBrz3jK9gAuN1r1AaXpED6dIhtg/JwiSRhjGL7aOJwRz3HU4efowCjQBaoXiREqg==}
 
   htmlparser2@10.0.0:
     resolution: {integrity: sha512-TwAZM+zE5Tq3lrEHvOlvwgj1XLWQCtaaibSN11Q+gGBAS7Y1uZSWwXXRe4iF6OXnaq1riyQAPFOBtYc77Mxq0g==}
@@ -1279,11 +1276,6 @@ snapshots:
       minipass: 7.1.2
       package-json-from-dist: 1.0.1
       path-scurry: 1.11.1
-
-  html-dom-parser@5.0.13:
-    dependencies:
-      domhandler: 5.0.3
-      htmlparser2: 10.0.0
 
   htmlparser2@10.0.0:
     dependencies:
