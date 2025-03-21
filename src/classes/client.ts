@@ -2,9 +2,17 @@ import type { AuthCookieStorage, AuthLoginPayload } from '@/types/auth.js';
 import { DikdasmenAuthClient } from './auth.js';
 import { fetchUtilities } from '@/utilities/fetch.js';
 import { SP_DATADIK_URL } from '@/constants.js';
-import type { SiswaData, SiswaStatus, PtkData, WsProfileData, SarprasData } from '@/types/app.js';
+import type {
+	SiswaData,
+	SiswaStatus,
+	PtkData,
+	WsProfileData,
+	SarprasData,
+	RombelData,
+} from '@/types/app.js';
 import { getSiswaDatas } from '@/parsers/siswa.js';
 import { getSarprasData } from '@/parsers/sarpras.js';
+import { getRombel } from '@/parsers/rombel.js';
 
 /**
  * @class DikdasmenClient
@@ -69,6 +77,12 @@ export class DikdasmenClient {
 		const http = await this.getHttp();
 		const response = await http.get('./sekolah/ruang').text();
 		return getSarprasData(response);
+	}
+
+	public async fetchRombel(): Promise<RombelData[]> {
+		const http = await this.getHttp();
+		const response = await http.get('./sekolah/rombel').text();
+		return getRombel(response);
 	}
 
 	public async getHttp() {

@@ -56,6 +56,16 @@ export type SarprasData = {
 	}>;
 };
 
+export type RombelData = {
+	nama: string;
+	tingkat: string;
+	jurusan: string;
+	wali_kelas: string;
+	nama_ruang: string;
+	kurikulum: string;
+	last_update: string;
+};
+
 export type WsProfileData = {
 	sekolah_id: string;
 	nama: string;

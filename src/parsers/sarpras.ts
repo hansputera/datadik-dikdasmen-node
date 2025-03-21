@@ -3,13 +3,17 @@ import DOM from '@mojojs/dom';
 
 export const getSarprasData = (html: string): SarprasData => {
 	const dom = new DOM(html);
+	const ruangTrElements = dom.children()[0].children()[0].children()[2].children()[1].children();
+	const bangunanTrElements = dom
+		.children()[0]
+		.children()[1]
+		.children()[0]
+		.children()[0]
+		.children()[1]
+		.children();
 
-    // TODO: fix element route to get the ruang and bangunan data
-    // const xlsDiv = dom.children()[0].children()[0].children();
-
-    // console.log(xlsDiv.map(x => [x.tag, x.attr]))
 	return {
-		ruang: dom.find('#ruang tbody tr').map((res) => ({
+		ruang: ruangTrElements.map((res) => ({
 			jenis: res.at('td:first-child')?.text().trim() ?? '-',
 			nama_bangunan: res.at('td:nth-child(2)')?.text().trim() ?? '-',
 			nama_ruang: res.at('td:nth-child(3)')?.text().trim() ?? '-',
@@ -18,7 +22,7 @@ export const getSarprasData = (html: string): SarprasData => {
 			lebar: Number.parseFloat(res.at('td:nth-child(6)')?.text().trim() ?? '0'),
 			last_update: res.at('td:last-child')?.text().trim() ?? '-',
 		})),
-		bangunan: dom.find('#tbangunan tbody tr').map((res) => ({
+		bangunan: bangunanTrElements.map((res) => ({
 			nama_bangunan: res.at('td:first-child')?.text().trim() ?? '-',
 			tahun: Number.parseInt(res.at('td:nth-child(2)')?.text().trim() ?? '0'),
 			luas: Number.parseFloat(res.at('td:nth-child(3)')?.text().trim() ?? '0'),

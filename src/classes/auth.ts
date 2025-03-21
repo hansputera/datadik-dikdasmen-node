@@ -25,6 +25,11 @@ export class DikdasmenAuthClient {
 	) {}
 
 	public async login(options: AuthLoginParams): Promise<void> {
+		const isLogged = await this.checkIsLoggedIn();
+		if (isLogged) {
+			return;
+		}
+
 		const htmlResponse = await fetchUtilities.ky.get<string>(SP_DATADIK_URL).text();
 		const authSsoUrl = await getAuthSsoUrl(htmlResponse);
 
@@ -88,5 +93,22 @@ export class DikdasmenAuthClient {
 	public async logout(): Promise<void> {
 		await this.cookieStore.writeCookie('');
 		// Soon, I will write soft flow to logout
+	}
+
+	protected async checkIsLoggedIn(): Promise<boolean> {
+		const previousCookie = await this.cookieStore.readCookie();
+
+		if (!previousCookie.length) {
+			return false;
+		}
+
+		const response = await fetchUtilities.ky.get(new URL('./app/', SP_DATADIK_URL), {
+			headers: {
+				Cookie: previousCookie,
+			},
+			redirect: 'manual',
+		});
+
+		return response.status !== 302 && response.headers.get('Location') !== '/';
 	}
 }
